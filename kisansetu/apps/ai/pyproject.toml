@@ -1,0 +1,13 @@
+[project]
+name = "kisansetu-ai"
+version = "0.1.0"
+description = "KisanSetu AI service (demand forecasting, price intelligence, matching, route optimization)"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]

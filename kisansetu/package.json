@@ -1,0 +1,23 @@
+{
+  "name": "kisansetu",
+  "version": "0.1.0",
+  "private": true,
+  "description": "KisanSetu - AI-powered farm-to-market platform (SIH 2026, PS 26033)",
+  "scripts": {
+    "dev:web": "pnpm --filter @kisansetu/web dev",
+    "dev:api": "pnpm --filter @kisansetu/api dev",
+    "dev:ai": "cd apps/ai && (test -d .venv || python3 -m venv .venv) && . .venv/bin/activate && uvicorn app.main:app --reload --port 8000",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "db:up": "docker compose up -d postgres",
+    "db:down": "docker compose down",
+    "prisma:generate": "pnpm --filter @kisansetu/api prisma:generate",
+    "prisma:migrate": "pnpm --filter @kisansetu/api prisma:migrate"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.12.0"
+}

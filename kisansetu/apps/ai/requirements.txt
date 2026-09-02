@@ -1,0 +1,12 @@
+# KisanSetu — AI service dependencies
+# Foundation phase: only what's needed to run FastAPI + a health check.
+# Forecasting/optimization libraries (scikit-learn, xgboost, OR-Tools) are
+# added when demand forecasting and route optimization tasks begin
+# (spec sections 6, 25) — do not add them speculatively now.
+
+fastapi==0.115.0
+uvicorn[standard]==0.31.0
+pydantic==2.9.2
+pydantic-settings==2.5.2
+python-dotenv==1.0.1
+httpx==0.27.2

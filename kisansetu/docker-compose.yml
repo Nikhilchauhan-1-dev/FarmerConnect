@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: kisansetu-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-kisansetu}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-kisansetu_dev_password}
+      POSTGRES_DB: ${POSTGRES_DB:-kisansetu}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - kisansetu_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-kisansetu} -d ${POSTGRES_DB:-kisansetu}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  kisansetu_pgdata:

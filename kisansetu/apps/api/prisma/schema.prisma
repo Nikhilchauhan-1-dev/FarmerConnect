@@ -1,0 +1,18 @@
+// KisanSetu — Prisma schema
+//
+// Foundation phase: only the datasource/generator are configured here so
+// the API can verify DB connectivity and `prisma generate`/`migrate` work
+// end-to-end. Business models (users, produce_listings, orders, etc.) are
+// added in the next task, per project spec section 28 ("Prisma schema →
+// migration → seed data → authentication → role-based access → marketplace").
+//
+// Do not add business models to this file until that task begins.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
